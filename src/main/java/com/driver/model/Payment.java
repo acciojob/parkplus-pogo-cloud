@@ -11,7 +11,7 @@ public class Payment {
     private int id;
 
 
-    private Boolean isPaymentCompleted;
+    private boolean paymentCompleted;
 
     @Enumerated(EnumType.STRING)
     private PaymentMode paymentMode;
@@ -21,9 +21,9 @@ public class Payment {
     @JoinColumn
     private Reservation reservation;
 
-    public Payment(int id, Boolean isPaymentCompleted, PaymentMode paymentMode, Reservation reservation) {
+    public Payment(int id, boolean paymentCompleted, PaymentMode paymentMode, Reservation reservation) {
         this.id = id;
-        this.isPaymentCompleted = isPaymentCompleted;
+        this.paymentCompleted = paymentCompleted;
         this.paymentMode = paymentMode;
         this.reservation = reservation;
     }
@@ -39,12 +39,12 @@ public class Payment {
         this.id = id;
     }
 
-    public Boolean getPaymentCompleted() {
-        return isPaymentCompleted;
+    public boolean isPaymentCompleted() {
+        return paymentCompleted;
     }
 
-    public void setPaymentCompleted(Boolean paymentCompleted) {
-        isPaymentCompleted = paymentCompleted;
+    public void setPaymentCompleted(boolean paymentCompleted) {
+        this.paymentCompleted = paymentCompleted;
     }
 
     public PaymentMode getPaymentMode() {
