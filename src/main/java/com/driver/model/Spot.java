@@ -11,6 +11,18 @@ public class Spot {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    public Spot() {
+    }
+
+    public Spot(int id, SpotType spotType, int pricePerHour, boolean occupied, ParkingLot parkingLot, List<Reservation> reservationList) {
+        this.id = id;
+        this.spotType = spotType;
+        this.pricePerHour = pricePerHour;
+        this.occupied = occupied;
+        this.parkingLot = parkingLot;
+        this.reservationList = reservationList;
+    }
+
     public int getId() {
         return id;
     }
@@ -35,11 +47,11 @@ public class Spot {
         this.pricePerHour = pricePerHour;
     }
 
-    public boolean isOccupied() {
+    public Boolean getOccupied() {
         return occupied;
     }
 
-    public void setOccupied(boolean occupied) {
+    public void setOccupied(Boolean occupied) {
         this.occupied = occupied;
     }
 
@@ -59,24 +71,12 @@ public class Spot {
         this.reservationList = reservationList;
     }
 
-    public Spot() {
-    }
-
-    public Spot(int id, SpotType spotType, int pricePerHour, boolean occupied, ParkingLot parkingLot, List<Reservation> reservationList) {
-        this.id = id;
-        this.spotType = spotType;
-        this.pricePerHour = pricePerHour;
-        this.occupied = occupied;
-        this.parkingLot = parkingLot;
-        this.reservationList = reservationList;
-    }
-
     @Enumerated(EnumType.STRING)
     private SpotType spotType;
 
     private int pricePerHour;
 
-    private boolean occupied;
+    private Boolean occupied;
 
     @ManyToOne
     @JoinColumn
